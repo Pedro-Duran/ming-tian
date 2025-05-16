@@ -14,8 +14,8 @@ public class TraducaoDTO {;
         String getTextZH();
     }
 
-    private interface Pinyin {
-        String getPinyin();
+    private interface PingYing {
+        String getPingYing();
     }
 
 
@@ -32,10 +32,10 @@ public class TraducaoDTO {;
     public class Response {
         @Value
         @Data
-        public static class Traducao implements TextPT, TextZH, Pinyin {
+        public static class Traducao implements TextPT, TextZH, PingYing {
             String textPT;
             String textZH;
-            String pinyin;
+            String pingYing;
         }
     }
 }

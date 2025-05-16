@@ -12,15 +12,15 @@ public class Dia {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String textoPT;
-    @Column
+    @Column(name = "TEXTO_PT")
+    private String textoPt;
+    @Column(name = "TEXTO_ZH")
     private String textoZh;
-    @Column
+    @Column(name = "PING_YING")
     private String pingYing;
+    @Column(name = "CAMINHO_AUDIO")
     private String caminhoAudio;
-
+    @Column(name = "DATA")
     private LocalDate data;
 
-    @ElementCollection
-    private List<String> topicos;
 }
