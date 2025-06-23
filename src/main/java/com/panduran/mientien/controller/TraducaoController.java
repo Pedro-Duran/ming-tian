@@ -1,7 +1,6 @@
 package com.panduran.mientien.controller;
 
 
-
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.panduran.mientien.dto.TraducaoDTO;
 import com.panduran.mientien.service.OpenAiTraducao;

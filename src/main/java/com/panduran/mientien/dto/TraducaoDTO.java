@@ -2,16 +2,16 @@ package com.panduran.mientien.dto;
 
 
 import lombok.Data;
-import lombok.Value;
 
 public class TraducaoDTO {;
 
-    private interface TextPT {
-        String getTextPT();
+
+    private interface Texto {
+        String getTexto();
     }
 
     private interface TextZH {
-        String getTextZH();
+        String getTexto();
     }
 
     private interface PingYing {
@@ -21,19 +21,19 @@ public class TraducaoDTO {;
 
     public class Request {
 
-        @Value
+
         @Data
-        public static class Translate implements TextPT {
-            String textPT;
+        public static class Translate implements Texto {
+            String texto;
         }
     }
 
 
     public class Response {
-        @Value
+
         @Data
-        public static class Traducao implements TextPT, TextZH, PingYing {
-            String textPT;
+        public static class Traducao implements Texto, TextZH, PingYing {
+            String texto;
             String textZH;
             String pingYing;
         }

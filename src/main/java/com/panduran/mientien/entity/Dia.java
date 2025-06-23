@@ -3,8 +3,7 @@ package com.panduran.mientien.entity;
 
 import jakarta.persistence.*;
 
-import java.time.LocalDate;
-import java.util.List;
+import java.time.LocalDateTime;
 
 @Entity
 public class Dia {
@@ -21,6 +20,6 @@ public class Dia {
     @Column(name = "CAMINHO_AUDIO")
     private String caminhoAudio;
     @Column(name = "DATA")
-    private LocalDate data;
+    private LocalDateTime data;
 
 }
