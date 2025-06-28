@@ -5,7 +5,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.panduran.mientien.dto.AudioMp3DTO;
 import com.panduran.mientien.dto.TraducaoDTO;
-import com.panduran.mientien.repository.DiaRepository;
+import com.panduran.mientien.repository.dia.DiaRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.ai.chat.client.ChatClient;
 import org.springframework.stereotype.Service;

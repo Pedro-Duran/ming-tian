@@ -1,4 +1,4 @@
-package com.panduran.mientien.repository;
+package com.panduran.mientien.repository.dia;
 
 public class DiaRepositoryImpl {
 

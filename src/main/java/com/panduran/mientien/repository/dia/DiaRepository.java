@@ -1,4 +1,4 @@
-package com.panduran.mientien.repository;
+package com.panduran.mientien.repository.dia;
 
 import com.panduran.mientien.entity.Dia;
 import jakarta.transaction.Transactional;
@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
 
 import java.time.LocalDateTime;
 
-import static com.panduran.mientien.repository.DiaRepositoryImpl.CADASTRAR_DIA;
+import static com.panduran.mientien.repository.dia.DiaRepositoryImpl.CADASTRAR_DIA;
 
 @Repository
 public interface DiaRepository extends JpaRepository<Dia, Long> {
