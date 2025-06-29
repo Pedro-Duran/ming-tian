@@ -28,7 +28,7 @@ public class TraducaoController {
         return ResponseEntity.ok(response);
     }
 
-    @GetMapping("buscarIdeogramas")
+    @GetMapping("/buscarIdeogramas")
     public List<String> buscarIdeogramas() {
 
         return exerciciosService.buscarIdeogramas();

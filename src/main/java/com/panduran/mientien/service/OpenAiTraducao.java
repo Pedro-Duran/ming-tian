@@ -45,6 +45,7 @@ public class OpenAiTraducao {
         TraducaoDTO.Response.Traducao traducao = objectMapper.readValue(json, TraducaoDTO.Response.Traducao.class);
         traducao.setTexto(request.getTexto());
         AudioMp3DTO.Response.Audio url = ttsService.gerarAudio(traducao);
+        traducao.setCaminhoAudio(url.getCaminhoAudio());
         diaRepository.cadastrar(traducao.getTexto(), traducao.getTextZH(), traducao.getPingYing(), url.getCaminhoAudio(), LocalDateTime.now());
         return traducao;
     }

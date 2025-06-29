@@ -26,7 +26,7 @@ public class ExerciciosService {
             for (char c : frase.trim().toCharArray()) {
                 palavrasDoDia.add(String.valueOf(c));
             }
-            ideogramas.add(palavrasDoDia); // adiciona a sublista completa, 1 vez por frase
+            ideogramas.add(palavrasDoDia);
         });
 
         return ideogramas;

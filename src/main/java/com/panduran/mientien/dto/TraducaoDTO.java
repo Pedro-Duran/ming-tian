@@ -18,6 +18,10 @@ public class TraducaoDTO {;
         String getPingYing();
     }
 
+    private interface CaminhoAudio {
+        String getCaminhoAudio();
+    }
+
 
     public class Request {
 
@@ -32,10 +36,11 @@ public class TraducaoDTO {;
     public class Response {
 
         @Data
-        public static class Traducao implements Texto, TextZH, PingYing {
+        public static class Traducao implements Texto, TextZH, PingYing, CaminhoAudio{
             String texto;
             String textZH;
             String pingYing;
+            String caminhoAudio;
         }
     }
 }
