@@ -33,6 +33,8 @@ public class TraducaoController {
 
         return exerciciosService.buscarIdeogramas();
     }
+
+
 }
 
 
