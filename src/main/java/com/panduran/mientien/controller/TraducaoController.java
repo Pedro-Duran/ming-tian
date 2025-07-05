@@ -4,7 +4,6 @@ package com.panduran.mientien.controller;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.panduran.mientien.dto.ExerciciosBuscarIdeogramas;
 import com.panduran.mientien.dto.TraducaoDTO;
-import com.panduran.mientien.entity.Dia;
 import com.panduran.mientien.service.ExerciciosService;
 import com.panduran.mientien.service.OpenAiDiario.OpenAiDiario;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,7 +30,7 @@ public class TraducaoController {
     }
 
     @GetMapping("/buscarIdeogramas")
-    public List<Dia> buscarIdeogramas(ExerciciosBuscarIdeogramas.Request data) {
+    public List<String> buscarIdeogramas(ExerciciosBuscarIdeogramas.Request data) {
 
         return exerciciosService.buscarIdeogramas(data);
     }

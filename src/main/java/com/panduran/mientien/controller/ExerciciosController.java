@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/exercicios")
 public class ExerciciosController {
@@ -15,7 +17,7 @@ public class ExerciciosController {
     ExerciciosService exerciciosService;
     
         @GetMapping("/palavrasPorDia")
-    public ExerciciosBuscarIdeogramas.Response palavrasPorDia(ExerciciosBuscarIdeogramas.Request request) {
+    public List<ExerciciosBuscarIdeogramas.Response> palavrasPorDia(ExerciciosBuscarIdeogramas.Request request) {
        return exerciciosService.palavrasPorDia(request);
     }
 
