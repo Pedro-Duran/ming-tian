@@ -9,6 +9,7 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import java.time.LocalDateTime;
+import java.util.Map;
 
 import static com.panduran.mientien.repository.dia.DiaRepositoryImpl.CADASTRAR_DIA;
 
@@ -19,8 +20,10 @@ public interface DiaRepository extends JpaRepository<Dia, Long> {
     @Transactional
     @Query(value = CADASTRAR_DIA, nativeQuery=true)
     void cadastrar(@Param("textoPt") String textoPt,
-                                                          @Param("textoZh") String textoZH,
-                                                          @Param("pingYing") String pingYing,
-                                                          @Param("caminhoAudio") String caminhoAudio,
-                                                          @Param("data") LocalDateTime data);
+                   @Param("textoZh") String textoZH,
+                   @Param("pingYing") String pingYing,
+                   @Param("caminhoAudio") String caminhoAudio,
+                   @Param("data") LocalDateTime data,
+                   @Param("palavrasTraduzidas") Map<String, String> palavrasTraduzidas);
 }
+

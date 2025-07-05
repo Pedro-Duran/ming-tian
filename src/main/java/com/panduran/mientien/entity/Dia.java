@@ -1,9 +1,11 @@
 package com.panduran.mientien.entity;
 
 
+import com.panduran.mientien.service.OpenAiDiario.converter.PalavrasTraduzidasConverter;
 import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
+import java.util.Map;
 
 @Entity
 public class Dia {
@@ -21,5 +23,9 @@ public class Dia {
     private String caminhoAudio;
     @Column(name = "DATA")
     private LocalDateTime data;
+    @Lob
+    @Convert(converter = PalavrasTraduzidasConverter.class)
+    @Column(name = "PALAVRAS_TRADUZIDAS")
+    private Map<String, String> palavrasTraduzidas;
 
 }

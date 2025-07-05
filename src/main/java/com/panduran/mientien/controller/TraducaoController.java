@@ -4,7 +4,7 @@ package com.panduran.mientien.controller;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.panduran.mientien.dto.TraducaoDTO;
 import com.panduran.mientien.service.ExerciciosService;
-import com.panduran.mientien.service.OpenAiTraducao;
+import com.panduran.mientien.service.OpenAiDiario.OpenAiDiario;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -16,7 +16,7 @@ import java.util.List;
 public class TraducaoController {
 
     @Autowired
-    OpenAiTraducao openAiTraducao;
+    OpenAiDiario openAiDiario;
 
     @Autowired
     ExerciciosService exerciciosService;
@@ -24,7 +24,7 @@ public class TraducaoController {
     @PostMapping("/traduzir")
     public ResponseEntity<TraducaoDTO.Response.Traducao> traduzir(
             @RequestBody TraducaoDTO.Request.Translate request) throws JsonProcessingException {
-        TraducaoDTO.Response.Traducao response = openAiTraducao.generation(request);
+        TraducaoDTO.Response.Traducao response = openAiDiario.generation(request);
         return ResponseEntity.ok(response);
     }
 

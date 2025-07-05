@@ -1,4 +1,4 @@
-package com.panduran.mientien.service;
+package com.panduran.mientien.service.TexToSpeechService;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
