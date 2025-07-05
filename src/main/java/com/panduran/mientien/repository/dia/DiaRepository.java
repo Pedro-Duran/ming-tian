@@ -9,7 +9,6 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import java.time.LocalDate;
-import java.util.Map;
 
 import static com.panduran.mientien.repository.dia.DiaRepositoryImpl.CADASTRAR_DIA;
 
@@ -24,6 +23,6 @@ public interface DiaRepository extends JpaRepository<Dia, Long> {
                    @Param("pingYing") String pingYing,
                    @Param("caminhoAudio") String caminhoAudio,
                    @Param("data") LocalDate data,
-                   @Param("palavrasTraduzidas") Map<String, String> palavrasTraduzidas);
+                   @Param("palavrasTraduzidas")  String palavrasTraduzidasJson);
 }
 

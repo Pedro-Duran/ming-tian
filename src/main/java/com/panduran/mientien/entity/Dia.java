@@ -3,10 +3,12 @@ package com.panduran.mientien.entity;
 
 import com.panduran.mientien.service.OpenAiDiario.converter.PalavrasTraduzidasConverter;
 import jakarta.persistence.*;
+import lombok.Data;
 
 import java.time.LocalDate;
 import java.util.Map;
 
+@Data
 @Entity
 public class Dia {
     @Id
