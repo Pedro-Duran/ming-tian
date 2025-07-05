@@ -11,7 +11,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.ai.chat.client.ChatClient;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 @RequiredArgsConstructor
 @Service
@@ -59,7 +59,7 @@ public class OpenAiDiario {
         System.out.println(traducao.getPalavrasTraduzidas());
         AudioMp3DTO.Response.Audio url = ttsService.gerarAudio(traducao);
         traducao.setCaminhoAudio(url.getCaminhoAudio());
-        diaRepository.cadastrar(traducao.getTexto(), traducao.getTextZH(), traducao.getPingYing(), url.getCaminhoAudio(), LocalDateTime.now(), traducao.getPalavrasTraduzidas());
+        diaRepository.cadastrar(traducao.getTexto(), traducao.getTextZH(), traducao.getPingYing(), url.getCaminhoAudio(), LocalDate.now(), traducao.getPalavrasTraduzidas());
         return traducao;
     }
 }
