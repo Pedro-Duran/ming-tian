@@ -59,7 +59,8 @@ public class OpenAiDiario {
         System.out.println(traducao.getPalavrasTraduzidas());
         AudioMp3DTO.Response.Audio url = ttsService.gerarAudio(traducao);
         traducao.setCaminhoAudio(url.getCaminhoAudio());
-        diaRepository.cadastrar(traducao.getTexto(), traducao.getTextZH(), traducao.getPingYing(), url.getCaminhoAudio(), LocalDate.now(), traducao.getPalavrasTraduzidas());
+        String palavrasTraduzidasJson = new ObjectMapper().writeValueAsString(traducao.getPalavrasTraduzidas());
+        diaRepository.cadastrar(traducao.getTexto(), traducao.getTextZH(), traducao.getPingYing(), url.getCaminhoAudio(), LocalDate.now(),palavrasTraduzidasJson);
         return traducao;
     }
 }
