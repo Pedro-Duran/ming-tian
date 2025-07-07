@@ -1,7 +1,7 @@
 package com.panduran.mientien.controller;
 
 import com.panduran.mientien.dto.ExerciciosBuscarIdeogramas;
-import com.panduran.mientien.service.ExerciciosService;
+import com.panduran.mientien.service.exercicios.ExerciciosService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
