@@ -12,6 +12,14 @@ import java.io.IOException;
 @Service
 public class TtsService {
 
+    // Exemplo de implementação
+    private String getPythonServiceUrl() {
+        String url = System.getenv("PYTHON_SERVICE_URL");
+        return (url != null) ? url : "http://localhost:5000";
+    }
+
+    // Uso
+    String fullUrl = getPythonServiceUrl();
 
     public AudioMp3DTO.Response.Audio gerarAudio(TraducaoDTO.Response.Traducao traducao) throws JsonProcessingException {
         OkHttpClient client = new OkHttpClient();
@@ -22,7 +30,7 @@ public class TtsService {
                 json, MediaType.parse("application/json; charset=utf-8"));
 
         Request request = new Request.Builder()
-                .url("http://127.0.0.1:8000/gerar-audio")
+                .url(fullUrl + "/gerar-audio")
                 .post(body)
                 .build();
 
