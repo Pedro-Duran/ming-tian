@@ -1,10 +1,13 @@
 package com.panduran.mientien.service.exercicios.exerciciosServiceUtils;
 
+import org.springframework.stereotype.Component;
+
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
+@Component
 public class ExerciciosServiceUtils {
 
     public static Map<String, String> juntarCaracteresComMesmoSignificado(Map <String, String> listaCaracteresCrua){

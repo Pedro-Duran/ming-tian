@@ -1,6 +1,7 @@
 package com.panduran.mientien.service.exercicios;
 
 import com.panduran.mientien.dto.ExerciciosBuscarIdeogramas;
+import com.panduran.mientien.dto.TraducaoDTO;
 import com.panduran.mientien.entity.Dia;
 import com.panduran.mientien.repository.exercicios.ExerciciosRepository;
 import com.panduran.mientien.service.exercicios.exerciciosServiceUtils.ExerciciosServiceUtils;
@@ -16,10 +17,10 @@ public class ExerciciosService {
     @Autowired
     ExerciciosRepository exerciciosRepository;
     @Autowired
-    static ExerciciosServiceUtils exerciciosServiceUtils;
+    ExerciciosServiceUtils exerciciosServiceUtils;
 
     public List<String> buscarIdeogramas(ExerciciosBuscarIdeogramas.Request request) {
-      List<Dia> buscarPalavrasPorDiaPorData = exerciciosRepository.buscarIdeogramas(request.getData());
+        List<Dia> buscarPalavrasPorDiaPorData = exerciciosRepository.buscarIdeogramas(request.getData());
         List<String> buscarIdeogramas = new ArrayList<>();
         buscarPalavrasPorDiaPorData.forEach(dia -> buscarIdeogramas.add(dia.getTextoZh()));
         return buscarIdeogramas;
@@ -32,15 +33,29 @@ public class ExerciciosService {
         iteraDiaParaAdicionarDadosAoResponse(buscarPalavrasPorDiaPorData, listaDeDiasComPalavrasPorDia);
 
         return listaDeDiasComPalavrasPorDia;
-
     }
 
-    private static void iteraDiaParaAdicionarDadosAoResponse(List<Dia> buscarPalavrasPorDiaPorData, List<ExerciciosBuscarIdeogramas.Response> listaDeDiasComPalavrasPorDia) {
+    public List<TraducaoDTO.Response.Traducao> buscarDiarios(ExerciciosBuscarIdeogramas.Request request) {
+        List<Dia> dias = exerciciosRepository.buscarIdeogramas(request.getData());
+        List<TraducaoDTO.Response.Traducao> resultado = new ArrayList<>();
+        dias.forEach(dia -> {
+            TraducaoDTO.Response.Traducao traducao = new TraducaoDTO.Response.Traducao();
+            traducao.setTexto(dia.getTextoPt());
+            traducao.setTextZH(dia.getTextoZh());
+            traducao.setPingYing(dia.getPingYing());
+            traducao.setCaminhoAudio(dia.getCaminhoAudio());
+            traducao.setPalavrasTraduzidas(dia.getPalavrasTraduzidas());
+            resultado.add(traducao);
+        });
+        return resultado;
+    }
+
+    private void iteraDiaParaAdicionarDadosAoResponse(List<Dia> buscarPalavrasPorDiaPorData, List<ExerciciosBuscarIdeogramas.Response> listaDeDiasComPalavrasPorDia) {
         buscarPalavrasPorDiaPorData.forEach(dia -> {
             ExerciciosBuscarIdeogramas.Response response = new ExerciciosBuscarIdeogramas.Response();
-        response.setPalavrasTraduzidas(exerciciosServiceUtils.juntarCaracteresComMesmoSignificado(dia.getPalavrasTraduzidas()));
-        response.setPingYing(dia.getPingYing());
-        listaDeDiasComPalavrasPorDia.add(response);
+            response.setPalavrasTraduzidas(exerciciosServiceUtils.juntarCaracteresComMesmoSignificado(dia.getPalavrasTraduzidas()));
+            response.setPingYing(dia.getPingYing());
+            listaDeDiasComPalavrasPorDia.add(response);
         });
     }
 }
