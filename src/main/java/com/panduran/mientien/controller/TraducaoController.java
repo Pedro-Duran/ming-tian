@@ -4,7 +4,7 @@ package com.panduran.mientien.controller;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.panduran.mientien.dto.ExerciciosBuscarIdeogramas;
 import com.panduran.mientien.dto.TraducaoDTO;
-import com.panduran.mientien.service.ExerciciosService;
+import com.panduran.mientien.service.exercicios.ExerciciosService;
 import com.panduran.mientien.service.OpenAiDiario.OpenAiDiario;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

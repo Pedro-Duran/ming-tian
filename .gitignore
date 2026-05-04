@@ -34,3 +34,7 @@ build/
 
 ### Arquivos sensíveis e temporários ###
 /src/main/resources/application-env.properties
+
+/audios/
+
+.env
